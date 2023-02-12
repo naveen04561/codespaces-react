@@ -1,7 +1,58 @@
+import React from "react";
+import Header from "./components/Header";
+
+//Old Way
 function App() {
     return (
-        <h1>Hello App</h1>
+        <>
+            <Header />
+            <div className="container">
+                <h1>My App</h1>
+            </div>
+        </>
     )
 }
+
+// function App() {
+//   const title = "Hi";
+//   const body = "Hello";
+//   const comments = [
+//     { id: 1, name: "comment1" },
+//     { id: 2, name: "comment2" },
+//     { id: 3, name: "comment3" },
+//   ];
+
+//   const commentBlock = (
+//     <div className="comments">
+//       <ul>
+//         {comments.map((comment, index) => (
+//           <li key={index + comment.id}>{comment.name}</li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+
+//   const value = true;
+
+//   return (
+//     <div className="container">
+//       <h1>Hello App</h1>
+//       <p>{title}</p>
+
+//       {value && commentBlock}
+//     </div>
+//   );
+// }
+
+// New way
+// function App() {
+//     return React.createElement(
+//         'div',
+//         { className:'container' },
+//         React.createElement(
+//             'h1',{},'My App'
+//         )
+//     )
+// }
 
 export default App;
