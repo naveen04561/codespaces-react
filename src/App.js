@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import Header from "./components/Header";
 import FeedBackList from "./components/FeedBackList"
 import FeedBackData from "./data/FeedBackData";
+import FeedBackStats from "./components/FeedBackStats";
+import FeedBackForm from "./components/FeedBackForm";
 
 //Old Way
 function App() {
@@ -18,6 +20,8 @@ function App() {
         <>
             <Header />
             <div className="container">
+                <FeedBackForm />
+                <FeedBackStats feedback={feedBack} />
                 <FeedBackList feedback={feedBack} handleDelete={deleteFeedBack}/>
             </div>
         </>
