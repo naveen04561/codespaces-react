@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import {BrowserRouter as Router,Route,Routes} from "react-router-dom";
 import Header from "./components/Header";
 import FeedBackList from "./components/FeedBackList"
 import FeedBackData from "./data/FeedBackData";
 import FeedBackStats from "./components/FeedBackStats";
 import FeedBackForm from "./components/FeedBackForm";
+import AboutPage from "./pages/AboutPage";
 
 //Old Way
 function App() {
@@ -17,14 +19,22 @@ function App() {
     }
 
     return (
-        <>
+        <Router>
             <Header />
             <div className="container">
-                <FeedBackForm />
-                <FeedBackStats feedback={feedBack} />
-                <FeedBackList feedback={feedBack} handleDelete={deleteFeedBack}/>
+                <Routes>
+                <Route exact path="/" element={
+                    <>
+                    <FeedBackForm />
+                    <FeedBackStats feedback={feedBack} />
+                    <FeedBackList feedback={feedBack} handleDelete={deleteFeedBack}/>
+                    </>
+                }>
+                </Route>
+                <Route path="/about" element={<AboutPage/>}/>
+                </Routes>
             </div>
-        </>
+        </Router>
     )
 }
 
