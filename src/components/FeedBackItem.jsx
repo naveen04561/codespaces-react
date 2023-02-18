@@ -1,10 +1,12 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Card from './shared/Card';
-import { FaTimes} from 'react-icons/fa';
+import { FaTimes,FaEdit } from 'react-icons/fa';
+import { useContext } from 'react';
+import FeedBackContext from '../context/FeedBackContext';
 
-function FeedBackItem({item, handleDelete}) {
-
+function FeedBackItem({item}) {
+    const {deleteFeedBack,editFeedBack} = useContext(FeedBackContext);
     // const [rating, setRating] = useState(1);
     // const [comment, setComment] = useState("Hi!");
     
@@ -19,8 +21,11 @@ function FeedBackItem({item, handleDelete}) {
         <div className="num-display">
             {item.rating}
         </div>
-        <button onClick={() => handleDelete(item.id)} className='close'>
+        <button onClick={() => deleteFeedBack(item.id)} className='close'>
             <FaTimes color='purple' />
+        </button>
+        <button onClick={() => editFeedBack(item)} className='edit'>
+            <FaEdit color='purple' />
         </button>
         <div className="text-display">
             {item.text}

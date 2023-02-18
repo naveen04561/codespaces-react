@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useContext } from "react";
 import Card from "./shared/Card";
 import { useState } from "react";
 import Button from "./shared/Button";
 import RatingSelect from "./RatingSelect";
+import FeedBackContext from "../context/FeedBackContext";
 
 function FeedBackForm() {
 
@@ -10,6 +11,8 @@ function FeedBackForm() {
     const [btnDisabled, setbtnDisabled] = useState(true);
     const [message, setMessage] = useState('');
     const [rating, setRating] = useState(10);
+
+    const { feedBackEdit } = useContext(FeedBackContext);
 
     const handleTextChange = (e) => {
 

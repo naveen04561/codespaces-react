@@ -1,9 +1,11 @@
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import FeedBackItem from "./FeedBackItem";
 import React from 'react';
+import { useContext } from 'react';
+import FeedBackContext from '../context/FeedBackContext';
 
-function FeedBackList({ feedback,handleDelete }) {
-
+function FeedBackList() {
+    const {feedback} = useContext(FeedBackContext);
     if(!feedback || feedback.length === 0) {
         return <p>No Feedback</p>
     }
@@ -12,23 +14,22 @@ function FeedBackList({ feedback,handleDelete }) {
         <div className="feedback-list">
             {
                 feedback.map((item) => (
-                    <FeedBackItem key={item.id} item={item} 
-                    handleDelete={handleDelete} />
+                    <FeedBackItem key={item.id} item={item} />
                 ))
             }
         </div>
     )
 }
 
-FeedBackList.propTypes = {
-    // feedback: PropTypes.array,
-    feedback: PropTypes.arrayOf(
-        PropTypes.shape({
-            id: PropTypes.number.isRequired,
-            text: PropTypes.string.isRequired,
-            rating: PropTypes.number.isRequired,
-        })
-    )
-}
+// FeedBackList.propTypes = {
+//     // feedback: PropTypes.array,
+//     feedback: PropTypes.arrayOf(
+//         PropTypes.shape({
+//             id: PropTypes.number.isRequired,
+//             text: PropTypes.string.isRequired,
+//             rating: PropTypes.number.isRequired,
+//         })
+//     )
+// }
 
 export default FeedBackList;
